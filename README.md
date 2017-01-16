@@ -37,7 +37,7 @@ xls file with C#
 ```C#=
 namespace XlsFile
 {
-    xlsFile CrossTalkFrom;
+    xlsf CrossTalkFrom;
 
     CrossTalkFrom.New();  //開新檔案
     CrossTalkFrom.SetSheetName(1, "CrossTalk值");  //新增sheet, 排在第1位(1起始), 命名為 CrossTalk值

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Drawing;
 
 using Excel = Microsoft.Office.Interop.Excel;
 
@@ -73,6 +74,12 @@ namespace XlsFile
         {
             excelApp.ActiveCell.Value = CellValue;
             //Value2是舊版語法
+        }
+
+        public xlsf SetCellColor(Color ColorObj)
+        {
+            excelApp.ActiveCell.Interior.Color = ColorTranslator.ToOle(ColorObj);
+            return this;
         }
     }
 }

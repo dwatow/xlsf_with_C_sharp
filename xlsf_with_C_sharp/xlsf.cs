@@ -257,6 +257,16 @@ namespace XlsFile
             return CurrCell.Value.ToString();
         }
 
+        public long GetCell2Int()
+        {
+            return Convert.ToInt64(CurrCell.Value);
+        }
+
+        public double GetCell2Double()
+        {
+            return Convert.ToDouble(CurrCell.Value);
+        }
+
         public xlsf SetCellColor(Color ColorObj, Excel.XlPattern PatternType = Excel.XlPattern.xlPatternAutomatic)
         {
             CurrCell.Interior.Color = ColorTranslator.ToOle(ColorObj);

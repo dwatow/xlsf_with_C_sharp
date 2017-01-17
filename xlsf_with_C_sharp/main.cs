@@ -52,9 +52,11 @@ namespace XlsFile
             excel_file.SelectCell("A2").SetCell(2);
             excel_file.SelectCell("A3").SetCell(3);
             excel_file.SelectCell("A4").SetCell(4);
-            excel_file.SelectCell("A5").SetCell("SUM(A1:A4)");
+            excel_file.SelectCell("A5").SetCell("=SUM(A1:A4)");
             string str = excel_file.SelectCell("A5").GetCell2Str();
             Console.WriteLine(str);
+            long number = excel_file.SelectCell("A5").GetCell2Int();
+            Console.WriteLine(number);
             excel_file.SelectSheet(2).CopySheet();
             //excel_file.DeleteSheet(2);
 

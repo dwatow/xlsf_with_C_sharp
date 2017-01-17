@@ -34,6 +34,9 @@ xls file with C#
     * (HOW TO：使用 COM Interop 來建立 Excel 試算表 (C# 程式設計手冊))[https://msdn.microsoft.com/zh-tw/library/ms173186(v=vs.80).aspx]
 * MSDN 使用活頁簿
     * (如何：以程式設計方式建立新活頁簿)[https://msdn.microsoft.com/zh-tw/library/x80526fk.aspx]
+    * (如何：以程式設計方式開啟活頁簿)[https://msdn.microsoft.com/zh-tw/library/b3k79a5x.aspx]
+    * (如何：以程式設計方式關閉活頁簿)[https://msdn.microsoft.com/zh-tw/library/cd8yh918.aspx]
+    * (如何：以程式設計方式儲存活頁簿)[https://msdn.microsoft.com/zh-tw/library/h1e33e36.aspx]
 
 
 # Sample Code

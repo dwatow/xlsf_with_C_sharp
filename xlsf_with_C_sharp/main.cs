@@ -14,8 +14,8 @@ namespace XlsFile
             xlsf excel_file = new xlsf();
             //xlsf excel_file = new xlsf(Marshal.GetActiveObject("Excel.Application"));
             
-            excel_file.NewFile();
-            //excel_file.OpenFile(@"C:\Users\kgs_chris\Desktop\活頁簿1.xlsx");
+            //excel_file.NewFile();
+            excel_file.OpenFile(@"C:\Users\kgs_chris\Desktop\活頁簿1.xlsx");
             
             excel_file.SetVisible(true);
             
@@ -35,8 +35,9 @@ namespace XlsFile
             Console.WriteLine("SheetTotal:{0}", excel_file.SheetTotal());
             Console.WriteLine("SheetName:{0}", excel_file.GetSheetName());
 
-            excel_file.CloseFile(false);
-            //excel_file.Quit();
+            excel_file.SaveAs(@"C:\Users\kgs_chris\Desktop\321.xlsx");
+            //excel_file.CloseFile(false);
+            excel_file.Quit();
             Console.WriteLine("Press any key to exit.");
             Console.ReadKey();
         }

@@ -5,12 +5,12 @@ using System.Text;
 using System.Drawing;
 
 using Excel = Microsoft.Office.Interop.Excel;
+using System.Runtime.InteropServices;
 
 namespace XlsFile
 {
     class xlsf
     {
-
         Excel.Application excelApp = new Excel.Application();
         //Excel.Sheets objSheets;
 
@@ -25,13 +25,13 @@ namespace XlsFile
             get { return excelApp.Workbooks; }
         }
         
-        private Excel.Workbook CurrWorkbook
-        {
-            get { return excelApp.ActiveWorkbook; }
-        }
+        //private Excel.Workbook CurrWorkbook
+        //{
+        //    get { return excelApp.ActiveWorkbook; }
+        //}
         private Excel.Sheets CurrSheets
         {
-            get { return excelApp.ActiveWorkbook.Sheets; }
+            get { return excelApp.Sheets; }
         }
 
         private Excel._Worksheet CurrSheet
@@ -55,11 +55,25 @@ namespace XlsFile
             get { return CurrCell.EntireRow; }
         }
 
+        public void Quit()
+        {
+            excelApp.Quit();
+        }
 
+        ~xlsf()
+        {
+            Marshal.FinalReleaseComObject(excelApp);
+        }
 
         public void NewFile()
         {
             NewBook();
+        }
+
+        public void OpenCurrFile()
+        {
+            object obj = Marshal.GetActiveObject("Excel.Application"); //引用已在執行的Excel
+            excelApp = obj as Excel.Application;
         }
 
         public void NewBook()
@@ -69,12 +83,23 @@ namespace XlsFile
 
         public void NewSheet()
         {
-            CurrSheets.Add(); //往前加，要換成往後加
+            CurrSheets.Add();
+        }
+
+        //由SheetNumber 取得SheetName
+        public string GetSheetName()
+        {
+            return CurrSheet.Name;
+        }
+
+        public long SheetTotal()
+        {
+            return CurrSheets.Count;
         }
 
         public void SetVisible(bool IsVisible)
         {
-            excelApp.Visible = IsVisible;
+            excelApp.Visible = IsVisible; //false, 速度快
         }
 
         public void AutoFitWidth()
@@ -90,7 +115,7 @@ namespace XlsFile
         #region Select Cell
         public xlsf SelectCell(string X, int Y) //  ("A", 3)
         {
-            CurrSheet.Range[Y, X].Select();
+            CurrSheet.Cells[Y, X].Select();
             return this;
         }
 
@@ -113,7 +138,6 @@ namespace XlsFile
             //get_Offset 是舊版語法
             return this;
         }
-
 
         public void SetCell(string CellValue)
         {

@@ -22,10 +22,16 @@ namespace XlsFile
 
             excel_file.SelectCell("A2").SetCellColor(Color.Beige);
 
+            excel_file.SelectCell("A3", "B4").SetCellColor(Color.Black);
+            excel_file.MoveSelect(1, 2).SetCell("Black offset 1, 2");
+            excel_file.AutoFitHight();
             excel_file.NewSheet();
 
-            //Console.WriteLine("Press any key to exit.");
-            //Console.ReadKey();
+            Console.WriteLine("SheetTotal:{0}", excel_file.SheetTotal());
+            Console.WriteLine("SheetName:{0}", excel_file.GetSheetName());
+            excel_file.Quit();
+            Console.WriteLine("Press any key to exit.");
+            Console.ReadKey();
         }
     }
 }

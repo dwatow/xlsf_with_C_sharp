@@ -36,9 +36,12 @@ namespace XlsFile
             Console.WriteLine("SheetName:{0}", excel_file.GetSheetName());
 
             excel_file.CopySheet(@"工作表3");
+            excel_file.CopySheet(2);
+            //excel_file.DeleteSheet(2);
+            excel_file.DeleteSheet(@"工作表3");
             //excel_file.SaveAs(@"C:\Users\kgs_chris\Desktop\321.xlsx");
-            excel_file.CloseFile(false);
-            excel_file.Quit();
+            //excel_file.CloseFile(false);
+            //excel_file.Quit();
             Console.WriteLine("Press any key to exit.");
             Console.ReadKey();
         }

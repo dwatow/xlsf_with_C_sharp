@@ -74,7 +74,9 @@ namespace XlsFile
         {
             //穩固程式設計
             //以互動方式取消任何儲存或複製活頁簿的方法，都會在程式碼中引發執行階段錯誤。例如，如果您的程序呼叫 SaveAs 方法，但不停用來自 Excel 的提示訊息，而使用者在出現提示時按一下 [取消]，此時 Excel 就會引發執行階段錯誤。
+            excelApp.DisplayAlerts = false;
             CurrWorkbook.SaveAs(FilePathName);
+            excelApp.DisplayAlerts = true;
         }
         #endregion
 
@@ -102,6 +104,20 @@ namespace XlsFile
         public void CopySheet(string SheetName)
         {
             CurrSheets[SheetName].Copy(CurrSheets[SheetTotal()]);
+        }
+
+        public void DeleteSheet(int SheetIndex)
+        {
+            excelApp.DisplayAlerts = false;
+            CurrSheets[SheetIndex].Delete();
+            excelApp.DisplayAlerts = true;
+        }
+
+        public void DeleteSheet(string SheetName)
+        {
+            excelApp.DisplayAlerts = false;
+            CurrSheets[SheetName].Delete();
+            excelApp.DisplayAlerts = true;
         }
 
 

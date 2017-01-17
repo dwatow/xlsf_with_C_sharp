@@ -38,8 +38,8 @@ namespace XlsFile
         }
         #endregion
 
-        //Excel._Worksheet objSheet;
         #region Workbooks, Workbook
+        //Excel._Worksheet objSheet;
         private Excel.Workbooks CurrWorkbooks
         {
             get { return excelApp.Workbooks; }
@@ -48,6 +48,11 @@ namespace XlsFile
         private Excel.Workbook CurrWorkbook
         {
             get { return excelApp.ActiveWorkbook; }
+        }
+
+        public void NewFile()
+        {
+            CurrWorkbooks.Add();
         }
 
         public void OpenFile(string XlsFilePathName)
@@ -71,8 +76,9 @@ namespace XlsFile
             //以互動方式取消任何儲存或複製活頁簿的方法，都會在程式碼中引發執行階段錯誤。例如，如果您的程序呼叫 SaveAs 方法，但不停用來自 Excel 的提示訊息，而使用者在出現提示時按一下 [取消]，此時 Excel 就會引發執行階段錯誤。
             CurrWorkbook.SaveAs(FilePathName);
         }
-
         #endregion
+
+        #region Sheet
         private Excel.Sheets CurrSheets
         {
             get { return excelApp.Sheets; }
@@ -82,6 +88,35 @@ namespace XlsFile
         {
             get { return excelApp.ActiveSheet; }
         }
+
+        public void NewSheet()
+        {
+            CurrSheets.Add();
+        }
+
+        public void CopySheet(int SheetIndex)
+        {
+            CurrSheets[SheetIndex].Copy(CurrSheets[SheetTotal()]);
+        }
+
+        public void CopySheet(string SheetName)
+        {
+            CurrSheets[SheetName].Copy(CurrSheets[SheetTotal()]);
+        }
+
+
+        //由SheetNumber 取得SheetName
+        public string GetSheetName()
+        {
+            return CurrSheet.Name;
+        }
+
+        public long SheetTotal()
+        {
+            return CurrSheets.Count;
+        }
+
+        #endregion
 
         //Excel.Range m_Range;, m_Col, m_Row;
         private Excel.Range CurrCell
@@ -104,31 +139,7 @@ namespace XlsFile
             excelApp.Quit();
         }
 
-        public void NewFile()
-        {
-            NewBook();
-        }
 
-        public void NewBook()
-        {
-           CurrWorkbooks.Add();
-        }
-
-        public void NewSheet()
-        {
-            CurrSheets.Add();
-        }
-
-        //由SheetNumber 取得SheetName
-        public string GetSheetName()
-        {
-            return CurrSheet.Name;
-        }
-
-        public long SheetTotal()
-        {
-            return CurrSheets.Count;
-        }
 
         public void SetVisible(bool IsVisible)
         {

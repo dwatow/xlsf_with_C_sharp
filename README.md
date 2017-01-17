@@ -32,11 +32,14 @@ xls file with C#
     * (逐步解說：Office 程式設計 (C# 和 Visual Basic))[https://msdn.microsoft.com/zh-tw/library/ee342218.aspx]
     * (如何：使用 Visual C# 功能存取 Office Interop 物件 (C# 程式設計指南))[https://msdn.microsoft.com/zh-tw/library/dd264733.aspx]
     * (HOW TO：使用 COM Interop 來建立 Excel 試算表 (C# 程式設計手冊))[https://msdn.microsoft.com/zh-tw/library/ms173186(v=vs.80).aspx]
-* MSDN 使用活頁簿
+* MSDN 使用活頁簿Workbooks (等同於檔案操作)
     * (如何：以程式設計方式建立新活頁簿)[https://msdn.microsoft.com/zh-tw/library/x80526fk.aspx]
     * (如何：以程式設計方式開啟活頁簿)[https://msdn.microsoft.com/zh-tw/library/b3k79a5x.aspx]
     * (如何：以程式設計方式關閉活頁簿)[https://msdn.microsoft.com/zh-tw/library/cd8yh918.aspx]
     * (如何：以程式設計方式儲存活頁簿)[https://msdn.microsoft.com/zh-tw/library/h1e33e36.aspx]
+* MSDN 使用工作表Workbook
+    * (如何：以程式設計方式在活頁簿中加入新的工作表)[https://msdn.microsoft.com/zh-tw/library/6fczc37s.aspx]
+    * (如何：以程式設計方式複製工作表)[https://msdn.microsoft.com/zh-tw/library/ms178800.aspx]
 
 
 # Sample Code

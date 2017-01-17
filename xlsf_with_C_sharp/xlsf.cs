@@ -222,6 +222,12 @@ namespace XlsFile
             return this;
         }
 
+        public void SetCell(Int64 CellValue)
+        {
+            CurrCell.Value = CellValue;
+            //Value2是舊版語法
+        }
+
         public void SetCell(string CellValue)
         {
             CurrCell.Value = CellValue;
@@ -255,6 +261,11 @@ namespace XlsFile
                 }
             }
             return dt;
+        }
+
+        public string GetCell2Str()
+        {
+            return CurrCell.Value.ToString();
         }
 
         public xlsf SetCellColor(Color ColorObj, Excel.XlPattern PatternType = Excel.XlPattern.xlPatternAutomatic)

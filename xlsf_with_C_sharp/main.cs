@@ -48,14 +48,21 @@ namespace XlsFile
             Console.WriteLine("SheetName:{0}", excel_file.GetSheetName());
 
             excel_file.SelectSheet(@"工作表3").CopySheet();
+            excel_file.SelectCell("A1").SetCell(1);
+            excel_file.SelectCell("A2").SetCell(2);
+            excel_file.SelectCell("A3").SetCell(3);
+            excel_file.SelectCell("A4").SetCell(4);
+            excel_file.SelectCell("A5").SetCell("SUM(A1:A4)");
+            string str = excel_file.SelectCell("A5").GetCell2Str();
+            Console.WriteLine(str);
             excel_file.SelectSheet(2).CopySheet();
             //excel_file.DeleteSheet(2);
 
             Console.WriteLine("SheetTotal:{0}", excel_file.SheetTotal());
             excel_file.SelectSheet(@"工作表3").MoveSheet();
             //excel_file.SaveAs(@"C:\Users\kgs_chris\Desktop\321.xlsx");
-            //excel_file.CloseFile(false);
-            //excel_file.Quit();
+            excel_file.CloseFile(false);
+            excel_file.Quit();
             Console.WriteLine("Press any key to exit.");
             Console.ReadKey();
         }

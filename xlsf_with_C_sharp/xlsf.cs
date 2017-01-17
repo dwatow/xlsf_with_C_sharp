@@ -300,9 +300,15 @@ namespace XlsFile
             return this;
         }
 
-        public xlsf SetFontBold(bool isBold)
+        public xlsf SetFontBold(bool IsBold)
         {
-            CurrCell.Font.Bold = true;
+            CurrCell.Font.Bold = IsBold;
+            return this;
+        }
+
+        public xlsf SetFontStrkthrgh(bool IsStrkthrgh)
+        {
+            CurrCell.Font.Strikethrough = IsStrkthrgh;
             return this;
         }
         #endregion

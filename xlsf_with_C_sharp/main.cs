@@ -57,7 +57,7 @@ namespace XlsFile
             Console.WriteLine(str);
             long number = excel_file.SelectCell("A5").GetCell2Int();
             Console.WriteLine(number);
-            excel_file.SelectCell("A5").SetFontBold(true);
+            excel_file.SelectCell("A5").SetFontBold(true).SetFontStrkthrgh(true);
             excel_file.SelectSheet(2).CopySheet();
             //excel_file.DeleteSheet(2);
 

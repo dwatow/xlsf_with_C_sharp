@@ -11,24 +11,50 @@ namespace XlsFile
 {
     class xlsf
     {
-        Excel.Application excelApp = new Excel.Application();
+        Excel.Application excelApp;
         //Excel.Sheets objSheets;
 
         //Excel.Interior m_Cell;
         //Excel.Font m_Font;
-        
+
         //exception
+
+        #region constructor, destructor
+        public xlsf()
+        {
+            excelApp = new Excel.Application();
+        }
+
+        public xlsf(object AppProcess)
+        {
+            //in main.cs
+            //xlsf excel_file = new xlsf(Marshal.GetActiveObject("Excel.Application"));
+            excelApp = AppProcess as Excel.Application;
+        }
+
+        ~xlsf()
+        {
+            Marshal.FinalReleaseComObject(excelApp);
+        }
+        #endregion
 
         //Excel._Worksheet objSheet;
         private Excel.Workbooks CurrWorkbooks
         {
             get { return excelApp.Workbooks; }
         }
-        
+
+        #region Workbooks, Workbook
         //private Excel.Workbook CurrWorkbook
         //{
         //    get { return excelApp.ActiveWorkbook; }
         //}
+
+        public void OpenFile(string XlsFilePathName)
+        {
+            CurrWorkbooks.Open(XlsFilePathName);
+        }
+        #endregion
         private Excel.Sheets CurrSheets
         {
             get { return excelApp.Sheets; }
@@ -60,20 +86,9 @@ namespace XlsFile
             excelApp.Quit();
         }
 
-        ~xlsf()
-        {
-            Marshal.FinalReleaseComObject(excelApp);
-        }
-
         public void NewFile()
         {
             NewBook();
-        }
-
-        public void OpenCurrFile()
-        {
-            object obj = Marshal.GetActiveObject("Excel.Application"); //引用已在執行的Excel
-            excelApp = obj as Excel.Application;
         }
 
         public void NewBook()
@@ -102,6 +117,7 @@ namespace XlsFile
             excelApp.Visible = IsVisible; //false, 速度快
         }
 
+        #region Cell operator
         public void AutoFitWidth()
         {
             CurrColumnCells.AutoFit();
@@ -150,5 +166,7 @@ namespace XlsFile
             CurrCell.Interior.Color = ColorTranslator.ToOle(ColorObj);
             return this;
         }
+        #endregion
+
     }
 }

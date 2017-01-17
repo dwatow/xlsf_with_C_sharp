@@ -12,7 +12,7 @@ namespace XlsFile
         {
             xlsf excel_file = new xlsf();
             excel_file.NewFile();
-            excel_file.Visible(true);
+            excel_file.SetVisible(true);
             
             excel_file.SelectCell("A1").SetCell("ID Number");
             excel_file.SelectCell("A1").AutoFitWidth();

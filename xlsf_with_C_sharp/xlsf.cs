@@ -11,7 +11,7 @@ namespace XlsFile
     class xlsf
     {
 
-        Excel.Application excelApp;
+        Excel.Application excelApp = new Excel.Application();
         //Excel.Sheets objSheets;
 
         Excel._Worksheet objSheet;
@@ -28,12 +28,11 @@ namespace XlsFile
 
         public void NewFile()
         {
-            excelApp = new Excel.Application();
             excelApp.Workbooks.Add();
             objSheet = (Excel.Worksheet)excelApp.ActiveSheet;
         }
 
-        public void Visible(bool IsVisible)
+        public void SetVisible(bool IsVisible)
         {
             excelApp.Visible = IsVisible;
         }
@@ -48,15 +47,14 @@ namespace XlsFile
             excelApp.ActiveCell.EntireRow.AutoFit();
         }
 
-        public xlsf SelectCell(string X, int Y)
+        public xlsf SelectCell(string X, int Y) //  ("A", 3)
         {
             objSheet.Cells[Y, X].Select();
             return this;
         }
-
        
 
-        public xlsf SelectCell(string SelectRange) //"A3" or "A1:B3"
+        public xlsf SelectCell(string SelectRange) //("A3") or ("A1:B3")
         {
             objSheet.Range[SelectRange].Select();
             return this;

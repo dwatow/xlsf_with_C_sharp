@@ -98,13 +98,10 @@ namespace XlsFile
 
         public void CopySheet(long NewSheetIndex = -1)
         {
-            if (NewSheetIndex == -1)
+            if (CheckSheetIndex(NewSheetIndex))
                 NewSheetIndex = SheetTotal();
 
-            if (NewSheetIndex >= 0 && NewSheetIndex <= SheetTotal())
-                CurrSheet.Copy(CurrSheets[NewSheetIndex]);
-            else
-                CurrSheet.Copy(CurrSheets[SheetTotal()]);
+            CurrSheet.Copy(CurrSheets[NewSheetIndex]);
         }
 
         public void DeleteSheet()
@@ -134,11 +131,18 @@ namespace XlsFile
                 CurrSheet.PrintOut(1, 1, 2, true);
         }
 
-        //public void MoveSheet()
-        //{
-        //    int totalSheets = this.Application.ActiveWorkbook.Sheets.Count;
-        //    Globals.Sheet1.Move(Globals.ThisWorkbook.Sheets[totalSheets]);
-        //}
+        public void MoveSheet(long SheetIndex = -1)
+        {
+            if ( CheckSheetIndex(SheetIndex))
+                SheetIndex = SheetTotal();
+
+            CurrSheet.Move(CurrSheets[SheetIndex]);
+        }
+
+        private bool CheckSheetIndex(long SheetIndex)
+        {
+            return SheetIndex == -1 || (SheetIndex >= 0 && SheetIndex <= SheetTotal());
+        }
 
         //由SheetNumber 取得SheetName
         public string GetSheetName()

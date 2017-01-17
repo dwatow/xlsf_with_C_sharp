@@ -38,7 +38,9 @@ namespace XlsFile
             excel_file.SelectSheet(@"工作表3").CopySheet();
             excel_file.SelectSheet(2).CopySheet();
             //excel_file.DeleteSheet(2);
-            excel_file.SelectSheet(@"工作表3").DeleteSheet();
+
+            Console.WriteLine("SheetTotal:{0}", excel_file.SheetTotal());
+            excel_file.SelectSheet(@"工作表3").MoveSheet();
             //excel_file.SaveAs(@"C:\Users\kgs_chris\Desktop\321.xlsx");
             //excel_file.CloseFile(false);
             //excel_file.Quit();

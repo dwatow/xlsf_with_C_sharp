@@ -14,22 +14,39 @@ namespace XlsFile
         Excel.Application excelApp = new Excel.Application();
         //Excel.Sheets objSheets;
 
-        Excel._Worksheet objSheet;
-        //Excel.Range m_Range;, m_Col, m_Row;
         //Excel.Interior m_Cell;
         //Excel.Font m_Font;
         
         //exception
 
-        public xlsf()
+        //Excel._Worksheet objSheet;
+        private Excel._Worksheet CurrSheet
         {
-            //NewFile();
+            get { return excelApp.ActiveSheet; }
         }
+
+        //Excel.Range m_Range;, m_Col, m_Row;
+        private Excel.Range CurrCell
+        {
+            get { return excelApp.ActiveCell; }
+        }
+
+        private Excel.Range CurrColumnCells
+        {
+            get { return CurrCell.EntireColumn; }
+        }
+
+        private Excel.Range CurrRowCells
+        {
+            get { return CurrCell.EntireRow; }
+        }
+
+
 
         public void NewFile()
         {
             excelApp.Workbooks.Add();
-            objSheet = (Excel.Worksheet)excelApp.ActiveSheet;
+            CurrSheet.Select();
         }
 
         public void SetVisible(bool IsVisible)
@@ -39,30 +56,30 @@ namespace XlsFile
 
         public void AutoFitWidth()
         {
-            excelApp.ActiveCell.EntireColumn.AutoFit();
+            CurrColumnCells.AutoFit();
         }
 
         public void AutoFitHight()
         {
-            excelApp.ActiveCell.EntireRow.AutoFit();
+            CurrRowCells.AutoFit();
         }
 
         public xlsf SelectCell(string X, int Y) //  ("A", 3)
         {
-            objSheet.Cells[Y, X].Select();
+            CurrSheet.Cells[Y, X].Select();
             return this;
         }
        
 
         public xlsf SelectCell(string SelectRange) //("A3") or ("A1:B3")
         {
-            objSheet.Range[SelectRange].Select();
+            CurrSheet.Range[SelectRange].Select();
             return this;
         }
 
         public xlsf MoveSelect(int X, int Y)
         {
-            excelApp.ActiveCell.Offset[Y, X].Select();
+            CurrCell.Offset[Y, X].Select();
             //get_Offset 是舊版語法
             return this;
         }
@@ -70,13 +87,13 @@ namespace XlsFile
 
         public void SetCell(string CellValue)
         {
-            excelApp.ActiveCell.Value = CellValue;
+            CurrCell.Value = CellValue;
             //Value2是舊版語法
         }
 
         public xlsf SetCellColor(Color ColorObj)
         {
-            excelApp.ActiveCell.Interior.Color = ColorTranslator.ToOle(ColorObj);
+            CurrCell.Interior.Color = ColorTranslator.ToOle(ColorObj);
             return this;
         }
     }

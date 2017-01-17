@@ -257,12 +257,38 @@ namespace XlsFile
             return dt;
         }
 
-        public xlsf SetCellColor(Color ColorObj)
+        public xlsf SetCellColor(Color ColorObj, Excel.XlPattern PatternType = Excel.XlPattern.xlPatternAutomatic)
         {
             CurrCell.Interior.Color = ColorTranslator.ToOle(ColorObj);
+            CurrCell.Interior.Pattern = PatternType;
             return this;
         }
 
+        public xlsf SetCellBk(Color ColorObj, Excel.XlPattern PatternType = Excel.XlPattern.xlPatternAutomatic)
+        {
+            CurrCell.Interior.Color = ColorTranslator.ToOle(ColorObj);
+            CurrCell.Interior.Pattern = PatternType;
+            return this;
+        }
+
+        public xlsf SetFont(string FontName = "微軟正黑體")
+        {
+            //Excel.Style style = Globals.ThisWorkbook.Styles.Add("NewStyle");
+            CurrCell.Font.Name = FontName;
+            return this;
+        }
+
+        public xlsf SetFontSize(int FontSize = 12)
+        {
+            CurrCell.Font.Size = FontSize;
+            return this;
+        }
+
+        public xlsf SetFontColor(Color FontColor)
+        {
+            CurrCell.Font.Color = System.Drawing.ColorTranslator.ToOle(FontColor);
+            return this;
+        }
 
 
         #endregion

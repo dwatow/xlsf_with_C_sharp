@@ -4,6 +4,7 @@ using System.Drawing;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
+using Microsoft.Office.Interop.Excel;
 
 namespace XlsFile
 {
@@ -36,6 +37,7 @@ namespace XlsFile
             excel_file.SelectCell("B1").CopyCell("B1", "B5");
 
             excel_file.SelectCell("C1").SetCell("2016/3/16");
+            excel_file.SelectCell("C1").SetFont("Console").SetFontSize(42).SetFontColor(Color.Blue).SetCellBk(Color.Orange);
             string datetime = excel_file.SelectCell("C1").GetCell2DateTime().ToString();
             Console.WriteLine(datetime);
             excel_file.SelectCell("D1").SetCell("this is D1");

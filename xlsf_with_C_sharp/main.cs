@@ -16,7 +16,7 @@ namespace XlsFile
             //xlsf excel_file = new xlsf(Marshal.GetActiveObject("Excel.Application"));
             
             //excel_file.NewFile();
-            excel_file.OpenFile(@"C:\Users\kgs_chris\Desktop\活頁簿1.xlsx");
+            excel_file.OpenFile(@"C:\活頁簿1.xlsx");
             
             excel_file.SetVisible(true);
             

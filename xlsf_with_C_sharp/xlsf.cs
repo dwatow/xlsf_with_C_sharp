@@ -11,11 +11,22 @@ namespace XlsFile
 {
     class xlsf
     {
+        #region App
         Excel.Application excelApp;
         //Excel.Sheets objSheets;
 
         //Excel.Interior m_Cell;
         //Excel.Font m_Font;
+        public void Quit()
+        {
+            excelApp.Quit();
+        }
+
+        public void SetVisible(bool IsVisible)
+        {
+            excelApp.Visible = IsVisible; //false, 速度快
+        }
+        #endregion
 
         //exception
 
@@ -176,6 +187,7 @@ namespace XlsFile
             get { return excelApp.ActiveCell; }
         }
 
+        #region AutoFit
         private Excel.Range CurrColumnCells
         {
             get { return CurrCell.EntireColumn; }
@@ -186,7 +198,6 @@ namespace XlsFile
             get { return CurrCell.EntireRow; }
         }
 
-
         public void AutoFitWidth()
         {
             CurrColumnCells.AutoFit();
@@ -195,6 +206,14 @@ namespace XlsFile
         public void AutoFitHight()
         {
             CurrRowCells.AutoFit();
+        }
+        #endregion
+
+        #region SelectCell
+        public xlsf SelectCell(string SelectRange) //("A3") or ("A1:B3")
+        {
+            CurrSheet.Range[SelectRange].Select();
+            return this;
         }
 
         public xlsf SelectCell(string X, int Y) //  ("A", 3)
@@ -209,18 +228,13 @@ namespace XlsFile
             return this;
         }
 
-        public xlsf SelectCell(string SelectRange) //("A3") or ("A1:B3")
+        public xlsf OffsetSelectCell(int OffsetRight, int OffsetDown)
         {
-            CurrSheet.Range[SelectRange].Select();
-            return this;
-        }
-
-        public xlsf OffsetSelectCell(int X, int Y)
-        {
-            CurrCell.Offset[Y, X].Select();
+            CurrCell.Offset[OffsetDown, OffsetRight].Select();
             //get_Offset 是舊版語法
             return this;
         }
+        #endregion
 
         public void SetCell(object CellValue)
         {
@@ -228,11 +242,18 @@ namespace XlsFile
             //Value2是舊版語法
         }
 
+        public void ClearCell()
+        {
+            CurrCell.Clear();
+        }
+
+
         public void CopyCell(string CellPosition1, string CellPosition2) //  ("A1", "B3")
         {
             CurrCell.AutoFill(excelApp.get_Range(CellPosition1, CellPosition2), Excel.XlAutoFillType.xlFillCopy);
         }
 
+        #region GetCellValue
         public DateTime GetCell2DateTime()
         {
             object value = CurrCell.Value2;
@@ -266,6 +287,8 @@ namespace XlsFile
         {
             return Convert.ToDouble(CurrCell.Value);
         }
+        #endregion
+
 
         public xlsf SetCellColor(Color ColorObj, Excel.XlPattern PatternType = Excel.XlPattern.xlPatternAutomatic)
         {
@@ -281,6 +304,7 @@ namespace XlsFile
             return this;
         }
 
+        #region Font
         public xlsf SetFont(string FontName = "微軟正黑體")
         {
             //Excel.Style style = Globals.ThisWorkbook.Styles.Add("NewStyle");
@@ -311,6 +335,7 @@ namespace XlsFile
             CurrCell.Font.Strikethrough = IsStrkthrgh;
             return this;
         }
+        #endregion
 
         public xlsf SetCellHeight(int HeightValue)
         {
@@ -325,14 +350,5 @@ namespace XlsFile
         }
         #endregion
 
-        public void Quit()
-        {
-            excelApp.Quit();
-        }
-
-        public void SetVisible(bool IsVisible)
-        {
-            excelApp.Visible = IsVisible; //false, 速度快
-        }
     }
 }

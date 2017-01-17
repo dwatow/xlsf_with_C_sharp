@@ -20,6 +20,20 @@ namespace XlsFile
         //exception
 
         //Excel._Worksheet objSheet;
+        private Excel.Workbooks CurrWorkbooks
+        {
+            get { return excelApp.Workbooks; }
+        }
+        
+        private Excel.Workbook CurrWorkbook
+        {
+            get { return excelApp.ActiveWorkbook; }
+        }
+        private Excel.Sheets CurrSheets
+        {
+            get { return excelApp.ActiveWorkbook.Sheets; }
+        }
+
         private Excel._Worksheet CurrSheet
         {
             get { return excelApp.ActiveSheet; }
@@ -45,8 +59,17 @@ namespace XlsFile
 
         public void NewFile()
         {
-            excelApp.Workbooks.Add();
-            CurrSheet.Select();
+            NewBook();
+        }
+
+        public void NewBook()
+        {
+           CurrWorkbooks.Add();
+        }
+
+        public void NewSheet()
+        {
+            CurrSheets.Add(); //往前加，要換成往後加
         }
 
         public void SetVisible(bool IsVisible)
@@ -64,18 +87,25 @@ namespace XlsFile
             CurrRowCells.AutoFit();
         }
 
+        #region Select Cell
         public xlsf SelectCell(string X, int Y) //  ("A", 3)
         {
-            CurrSheet.Cells[Y, X].Select();
+            CurrSheet.Range[Y, X].Select();
             return this;
         }
-       
+
+        public xlsf SelectCell(string CellPosition1, string CellPosition2) //  ("A1", "B3")
+        {
+            CurrSheet.get_Range(CellPosition1, CellPosition2).Select();
+            return this;
+        }
 
         public xlsf SelectCell(string SelectRange) //("A3") or ("A1:B3")
         {
             CurrSheet.Range[SelectRange].Select();
             return this;
         }
+        #endregion
 
         public xlsf MoveSelect(int X, int Y)
         {

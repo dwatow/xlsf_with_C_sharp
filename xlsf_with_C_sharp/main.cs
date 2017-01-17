@@ -22,8 +22,10 @@ namespace XlsFile
 
             excel_file.SelectCell("A2").SetCellColor(Color.Beige);
 
-            Console.WriteLine("Press any key to exit.");
-            Console.ReadKey();
+            excel_file.NewSheet();
+
+            //Console.WriteLine("Press any key to exit.");
+            //Console.ReadKey();
         }
     }
 }

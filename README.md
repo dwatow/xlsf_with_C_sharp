@@ -31,6 +31,7 @@ xls file with C#
     * (如何：以程式設計方式將色彩套用至 Excel 範圍)[https://msdn.microsoft.com/zh-tw/library/4zs9xy29.aspx]
     * (逐步解說：Office 程式設計 (C# 和 Visual Basic))[https://msdn.microsoft.com/zh-tw/library/ee342218.aspx]
     * (如何：使用 Visual C# 功能存取 Office Interop 物件 (C# 程式設計指南))[https://msdn.microsoft.com/zh-tw/library/dd264733.aspx]
+    * (HOW TO：使用 COM Interop 來建立 Excel 試算表 (C# 程式設計手冊))[https://msdn.microsoft.com/zh-tw/library/ms173186(v=vs.80).aspx]
 
 # Sample Code
 用起來的code會像這樣

@@ -1,7 +1,7 @@
 # xlsf_with_C_sharp
 A class of xls file with C#
 
-想要仿照 (xlsf_with_MFC)[https://github.com/dwatow/xlsf_with_MFC]的class使用方式
+想要仿照 [xlsf_with_MFC](https://github.com/dwatow/xlsf_with_MFC)的class使用方式
 做一個C#版本的class
 
 # xls file with C#
@@ -28,29 +28,29 @@ xls file with C#
 
 ## 參考資料
 * MSDN
-    * (如何：以程式設計方式將色彩套用至 Excel 範圍)[https://msdn.microsoft.com/zh-tw/library/4zs9xy29.aspx]
-    * (逐步解說：Office 程式設計 (C# 和 Visual Basic))[https://msdn.microsoft.com/zh-tw/library/ee342218.aspx]
-    * (如何：使用 Visual C# 功能存取 Office Interop 物件 (C# 程式設計指南))[https://msdn.microsoft.com/zh-tw/library/dd264733.aspx]
-    * (HOW TO：使用 COM Interop 來建立 Excel 試算表 (C# 程式設計手冊))[https://msdn.microsoft.com/zh-tw/library/ms173186(v=vs.80).aspx]
-    * (Application.DisplayAlerts 屬性 (Excel))[https://msdn.microsoft.com/zh-tw/library/office/ff839782.aspx]
+    * [如何：以程式設計方式將色彩套用至 Excel 範圍](https://msdn.microsoft.com/zh-tw/library/4zs9xy29.aspx)
+    * [逐步解說：Office 程式設計 (C# 和 Visual Basic)](https://msdn.microsoft.com/zh-tw/library/ee342218.aspx)
+    * [如何：使用 Visual C# 功能存取 Office Interop 物件 (C# 程式設計指南)](https://msdn.microsoft.com/zh-tw/library/dd264733.aspx)
+    * [HOW TO：使用 COM Interop 來建立 Excel 試算表 (C# 程式設計手冊)](https://msdn.microsoft.com/zh-tw/library/ms173186(v=vs.80).aspx)
+    * [Application.DisplayAlerts 屬性 (Excel)](https://msdn.microsoft.com/zh-tw/library/office/ff839782.aspx)
 * MSDN 使用活頁簿Workbooks (等同於檔案操作)
-    * (如何：以程式設計方式建立新活頁簿)[https://msdn.microsoft.com/zh-tw/library/x80526fk.aspx]
-    * (如何：以程式設計方式開啟活頁簿)[https://msdn.microsoft.com/zh-tw/library/b3k79a5x.aspx]
-    * (如何：以程式設計方式關閉活頁簿)[https://msdn.microsoft.com/zh-tw/library/cd8yh918.aspx]
-    * (如何：以程式設計方式儲存活頁簿)[https://msdn.microsoft.com/zh-tw/library/h1e33e36.aspx]
+    * [如何：以程式設計方式建立新活頁簿](https://msdn.microsoft.com/zh-tw/library/x80526fk.aspx)
+    * [如何：以程式設計方式開啟活頁簿](https://msdn.microsoft.com/zh-tw/library/b3k79a5x.aspx)
+    * [如何：以程式設計方式關閉活頁簿](https://msdn.microsoft.com/zh-tw/library/cd8yh918.aspx)
+    * [如何：以程式設計方式儲存活頁簿](https://msdn.microsoft.com/zh-tw/library/h1e33e36.aspx)
 * MSDN 使用工作表Workbook
-    * (如何：以程式設計方式在活頁簿中加入新的工作表)[https://msdn.microsoft.com/zh-tw/library/6fczc37s.aspx]
-    * (如何：以程式設計方式複製工作表)[https://msdn.microsoft.com/zh-tw/library/ms178800.aspx]
-    * (如何：以程式設計方式從活頁簿中刪除工作表)[https://msdn.microsoft.com/zh-tw/library/s9kdkks3.aspx]
-    * (如何：以程式設計方式選取工作表)[https://msdn.microsoft.com/zh-tw/library/x62t5306.aspx]
-    * (如何：以程式設計方式列印工作表)[https://msdn.microsoft.com/zh-tw/library/czhz96h7.aspx]
-    * (如何：以程式設計方式在活頁簿內移動工作表)[https://msdn.microsoft.com/zh-tw/library/xyhf0ksb.aspx]
-    * (如何：以程式設計方式隱藏工作表)[https://msdn.microsoft.com/zh-tw/library/x0th45dh.aspx]
+    * [如何：以程式設計方式在活頁簿中加入新的工作表](https://msdn.microsoft.com/zh-tw/library/6fczc37s.aspx)
+    * [如何：以程式設計方式複製工作表](https://msdn.microsoft.com/zh-tw/library/ms178800.aspx)
+    * [如何：以程式設計方式從活頁簿中刪除工作表](https://msdn.microsoft.com/zh-tw/library/s9kdkks3.aspx)
+    * [如何：以程式設計方式選取工作表](https://msdn.microsoft.com/zh-tw/library/x62t5306.aspx)
+    * [如何：以程式設計方式列印工作表](https://msdn.microsoft.com/zh-tw/library/czhz96h7.aspx)
+    * [如何：以程式設計方式在活頁簿內移動工作表](https://msdn.microsoft.com/zh-tw/library/xyhf0ksb.aspx)
+    * [如何：以程式設計方式隱藏工作表](https://msdn.microsoft.com/zh-tw/library/x0th45dh.aspx)
 * MSDN 使用範圍Range 等同於儲存格
-    * (如何：以程式設計方式在程式碼中參考工作表範圍)[https://msdn.microsoft.com/zh-tw/library/3a71yzkw.aspx]
-    * (如何：以程式設計方式用遞增 (減) 變化的資料自動填滿範圍)[https://msdn.microsoft.com/zh-tw/library/8c94w5fs.aspx]
-    * (如何：以程式設計方式在 Excel 範圍中儲存和擷取日期值)[https://msdn.microsoft.com/zh-tw/library/1ad4d8d6.aspx]
-    * (如何：以程式設計方式將樣式套用至活頁簿中的範圍)[https://msdn.microsoft.com/zh-tw/library/f1hh9fza.aspx]
+    * [如何：以程式設計方式在程式碼中參考工作表範圍](https://msdn.microsoft.com/zh-tw/library/3a71yzkw.aspx)
+    * [如何：以程式設計方式用遞增 (減) 變化的資料自動填滿範圍](https://msdn.microsoft.com/zh-tw/library/8c94w5fs.aspx)
+    * [如何：以程式設計方式在 Excel 範圍中儲存和擷取日期值](https://msdn.microsoft.com/zh-tw/library/1ad4d8d6.aspx)
+    * [如何：以程式設計方式將樣式套用至活頁簿中的範圍](https://msdn.microsoft.com/zh-tw/library/f1hh9fza.aspx)
 
 
 # Sample Code

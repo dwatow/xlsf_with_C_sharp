@@ -52,6 +52,7 @@ namespace XlsFile
             excel_file.SelectCell("A2").SetCell(2);
             excel_file.SelectCell("A3").SetCell(3);
             excel_file.SelectCell("A4").SetCell(4);
+            excel_file.SelectCell("A4").SetCellHeight(36).SetCellWidth(68);
             excel_file.SelectCell("A5").SetCell("=SUM(A1:A4)");
             string str = excel_file.SelectCell("A5").GetCell2Str();
             Console.WriteLine(str);

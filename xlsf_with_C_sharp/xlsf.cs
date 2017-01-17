@@ -311,6 +311,18 @@ namespace XlsFile
             CurrCell.Font.Strikethrough = IsStrkthrgh;
             return this;
         }
+
+        public xlsf SetCellHeight(int HeightValue)
+        {
+            CurrCell.RowHeight = HeightValue;
+            return this;
+        }
+
+        public xlsf SetCellWidth(int WidthValue)
+        {
+            CurrCell.ColumnWidth = WidthValue;
+            return this;
+        }
         #endregion
 
         public void Quit()

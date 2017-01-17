@@ -55,88 +55,71 @@ xls file with C#
 
 # Sample Code
 用起來的code會像這樣
-```C#=
+```Cs
 namespace XlsFile
 {
-    xlsf CrossTalkFrom;
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            xlsf excel_file = new xlsf();
+            //xlsf excel_file = new xlsf(Marshal.GetActiveObject("Excel.Application"));
 
-    CrossTalkFrom.New();  //開新檔案
-    CrossTalkFrom.SetSheetName(1, "CrossTalk值");  //新增sheet, 排在第1位(1起始), 命名為 CrossTalk值
+            //excel_file.NewFile();
+            excel_file.OpenFile(@"C:\Users\kgs_chris\Desktop\活頁簿1.xlsx");
 
-    //////////////////////////////////////////////////////////////////////////
-    //填值
-    //SelectCell: 選擇儲存格, 填入座標
-    //SetCell: 填入值
+            excel_file.SetVisible(true);
 
-    CrossTalkFrom.SelectCell("B1").SetCell("Lv");
-    CrossTalkFrom.SelectCell("F1").SetCell("x");
-    CrossTalkFrom.SelectCell("J1").SetCell("y");
-    CrossTalkFrom.SelectCell("C2").SetCell(vChain1[0].GetStrLv());
-    CrossTalkFrom.SelectCell("B3").SetCell(vChain1[1].GetStrLv());
-    CrossTalkFrom.SelectCell("D3").SetCell(vChain1[2].GetStrLv());
-    CrossTalkFrom.SelectCell("C4").SetCell(vChain1[3].GetStrLv());
-    CrossTalkFrom.SelectCell("C6").SetCell(vChain1[4].GetStrLv());
-    CrossTalkFrom.SelectCell("B7").SetCell(vChain1[5].GetStrLv());
-    CrossTalkFrom.SelectCell("D7").SetCell(vChain1[6].GetStrLv());
-    CrossTalkFrom.SelectCell("C8").SetCell(vChain1[7].GetStrLv());
-    CrossTalkFrom.SelectCell("C10").SetCell(vChain1[8].GetStrLv());
-    CrossTalkFrom.SelectCell("B11").SetCell(vChain1[9].GetStrLv());
-    CrossTalkFrom.SelectCell("D11").SetCell(vChain1[10].GetStrLv());
-    CrossTalkFrom.SelectCell("C12").SetCell(vChain1[11].GetStrLv());
-    CrossTalkFrom.SelectCell("G2").SetCell(vChain1[0].GetStrSx());
-    CrossTalkFrom.SelectCell("F3").SetCell(vChain1[1].GetStrSx());
-    CrossTalkFrom.SelectCell("H3").SetCell(vChain1[2].GetStrSx());
-    CrossTalkFrom.SelectCell("G4").SetCell(vChain1[3].GetStrSx());
-    CrossTalkFrom.SelectCell("G6").SetCell(vChain1[4].GetStrSx());
-    CrossTalkFrom.SelectCell("F7").SetCell(vChain1[5].GetStrSx());
-    CrossTalkFrom.SelectCell("H7").SetCell(vChain1[6].GetStrSx());
-    CrossTalkFrom.SelectCell("G8").SetCell(vChain1[7].GetStrSx());
-    CrossTalkFrom.SelectCell("G10").SetCell(vChain1[8].GetStrSx());
-    CrossTalkFrom.SelectCell("F11").SetCell(vChain1[9].GetStrSx());
-    CrossTalkFrom.SelectCell("H11").SetCell(vChain1[10].GetStrSx());
-    CrossTalkFrom.SelectCell("G12").SetCell(vChain1[11].GetStrSx());
-    CrossTalkFrom.SelectCell("K2").SetCell(vChain1[0].GetStrSy());
-    CrossTalkFrom.SelectCell("J3").SetCell(vChain1[1].GetStrSy());
-    CrossTalkFrom.SelectCell("L3").SetCell(vChain1[2].GetStrSy());
-    CrossTalkFrom.SelectCell("K4").SetCell(vChain1[3].GetStrSy());
-    CrossTalkFrom.SelectCell("K6").SetCell(vChain1[4].GetStrSy());
-    CrossTalkFrom.SelectCell("J7").SetCell(vChain1[5].GetStrSy());
-    CrossTalkFrom.SelectCell("L7").SetCell(vChain1[6].GetStrSy());
-    CrossTalkFrom.SelectCell("K8").SetCell(vChain1[7].GetStrSy());
-    CrossTalkFrom.SelectCell("K10").SetCell(vChain1[8].GetStrSy());
-    CrossTalkFrom.SelectCell("J11").SetCell(vChain1[9].GetStrSy());
-    CrossTalkFrom.SelectCell("L11").SetCell(vChain1[10].GetStrSy());
-    CrossTalkFrom.SelectCell("K12").SetCell(vChain1[11].GetStrSy());
+            excel_file.SelectCell("A1").SetCell("ID Number");
+            excel_file.SelectCell("A1").AutoFitWidth();
 
-    //////////////////////////////////////////////////////////////////////////
-    //畫背景和框線
-    //SelectCell: 選取儲存格範圍, 英文和數字可以分開填入，並且參數化
-    //SetCellColor: 設定底色
-    //SetCellBorder: 設定框(填預設值)
+            excel_file.SelectCell("B", 1).SetCell("Current Balance");
+            excel_file.SelectCell("B", 1).AutoFitWidth();
 
-    char cCell = 'B';
-    int iCell = 2;
-    CrossTalkFrom.SelectCell(cCell, iCell   , cCell + 2, iCell + 2).SetCellColor(15).SetCellBorder();
-    CrossTalkFrom.SelectCell(cCell, iCell +4, cCell + 2, iCell + 6).SetCellColor(15).SetCellBorder();
-    CrossTalkFrom.SelectCell(cCell + 1, iCell +5).SetCellColor(2);
-    CrossTalkFrom.SelectCell(cCell, iCell +8, cCell + 2, iCell +10).SetCellColor(15).SetCellBorder();
-    CrossTalkFrom.SelectCell(cCell + 1, iCell +9).SetCellColor(1);
+            excel_file.SelectCell("A2").SetCellColor(Color.Beige);
 
-    cCell = 'F';
-    CrossTalkFrom.SelectCell(cCell, iCell   , cCell + 2, iCell + 2).SetCellColor(15).SetCellBorder();
-    CrossTalkFrom.SelectCell(cCell, iCell +4, cCell + 2, iCell + 6).SetCellColor(15).SetCellBorder();
-    CrossTalkFrom.SelectCell(cCell + 1, iCell +5).SetCellColor(2);
-    CrossTalkFrom.SelectCell(cCell, iCell +8, cCell + 2, iCell +10).SetCellColor(15).SetCellBorder();
-    CrossTalkFrom.SelectCell(cCell + 1, iCell +9).SetCellColor(1);
+            excel_file.SelectCell("A3", "B4").SetCellColor(Color.Black);
+            excel_file.OffsetSelectCell(1, 2).SetCell("Black offset 1, 2");
+            excel_file.AutoFitHight();
 
-    cCell = 'J';
-    CrossTalkFrom.SelectCell(cCell, iCell   , cCell + 2, iCell + 2).SetCellColor(15).SetCellBorder();
-    CrossTalkFrom.SelectCell(cCell, iCell +4, cCell + 2, iCell + 6).SetCellColor(15).SetCellBorder();
-    CrossTalkFrom.SelectCell(cCell + 1, iCell +5).SetCellColor(2);
-    CrossTalkFrom.SelectCell(cCell, iCell +8, cCell + 2, iCell +10).SetCellColor(15).SetCellBorder();
-    CrossTalkFrom.SelectCell(cCell + 1, iCell +9).SetCellColor(1);
+            excel_file.NewSheet();
+            excel_file.SelectCell("B1").SetCell("this is B1");
+            excel_file.SelectCell("B1").CopyCell("B1", "B5");
 
-    //顯示 操控權還給使用者
-    CrossTalkFrom.SetVisible(true);
+            excel_file.SelectCell("C1").SetCell("2016/3/16");
+            excel_file.SelectCell("C1").SetFont("Console").SetFontSize(42).SetFontColor(Color.Blue).SetCellBk(Color.Orange);
+            string datetime = excel_file.SelectCell("C1").GetCell2DateTime().ToString();
+            Console.WriteLine(datetime);
+            excel_file.SelectCell("D1").SetCell("this is D1");
+
+            Console.WriteLine("SheetTotal:{0}", excel_file.SheetTotal());
+            Console.WriteLine("SheetName:{0}", excel_file.GetSheetName());
+            excel_file.SelectSheet(@"工作表1").SetSheetName("new sheet name");
+            Console.WriteLine("SheetName:{0}", excel_file.GetSheetName());
+
+            excel_file.SelectSheet(@"工作表3").CopySheet();
+            excel_file.SelectCell("A1").SetCell(1);
+            excel_file.SelectCell("A2").SetCell(2);
+            excel_file.SelectCell("A3").SetCell(3);
+            excel_file.SelectCell("A4").SetCell(4);
+            excel_file.SelectCell("A4").SetCellHeight(36).SetCellWidth(68);
+            excel_file.SelectCell("A5").SetCell("=SUM(A1:A4)");
+            string str = excel_file.SelectCell("A5").GetCell2Str();
+            Console.WriteLine(str);
+            long number = excel_file.SelectCell("A5").GetCell2Int();
+            Console.WriteLine(number);
+            excel_file.SelectCell("A5").SetFontBold(true).SetFontStrkthrgh(true);
+            excel_file.SelectSheet(2).CopySheet();
+            //excel_file.DeleteSheet(2);
+
+            Console.WriteLine("SheetTotal:{0}", excel_file.SheetTotal());
+            excel_file.SelectSheet(@"工作表3").MoveSheet();
+            //excel_file.SaveAs(@"C:\Users\kgs_chris\Desktop\321.xlsx");
+            //excel_file.CloseFile(false);
+            //excel_file.Quit();
+            Console.WriteLine("Press any key to exit.");
+            Console.ReadKey();
+        }
+    }
 }
 ```

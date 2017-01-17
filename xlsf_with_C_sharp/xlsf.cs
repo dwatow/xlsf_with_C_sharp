@@ -228,9 +228,33 @@ namespace XlsFile
             //Value2是舊版語法
         }
 
-        public void AutoFill(string CellPosition1, string CellPosition2) //  ("A1", "B3")
+        public void CopyCell(string CellPosition1, string CellPosition2) //  ("A1", "B3")
         {
-            CurrCell.AutoFill(excelApp.get_Range(CellPosition1, CellPosition2));
+            CurrCell.AutoFill(excelApp.get_Range(CellPosition1, CellPosition2), Excel.XlAutoFillType.xlFillCopy);
+        }
+
+        public void SetCell(DateTime DateTimeValue)
+        {
+            CurrCell.Value = DateTimeValue;
+        }
+
+        public DateTime GetCell2DateTime()
+        {
+            object value = CurrCell.Value2;
+            DateTime dt = new DateTime(); ;
+
+            if (value != null)
+            {
+                if (value is double)
+                {
+                    dt = DateTime.FromOADate((double)value);
+                }
+                else
+                {
+                    DateTime.TryParse((string)value, out dt);
+                }
+            }
+            return dt;
         }
 
         public xlsf SetCellColor(Color ColorObj)
@@ -238,7 +262,9 @@ namespace XlsFile
             CurrCell.Interior.Color = ColorTranslator.ToOle(ColorObj);
             return this;
         }
-        
+
+
+
         #endregion
 
         public void Quit()

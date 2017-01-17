@@ -49,6 +49,7 @@ xls file with C#
 * MSDN 使用範圍Range 等同於儲存格
     * (如何：以程式設計方式在程式碼中參考工作表範圍)[https://msdn.microsoft.com/zh-tw/library/3a71yzkw.aspx]
     * (如何：以程式設計方式用遞增 (減) 變化的資料自動填滿範圍)[https://msdn.microsoft.com/zh-tw/library/8c94w5fs.aspx]
+    * (如何：以程式設計方式在 Excel 範圍中儲存和擷取日期值)[https://msdn.microsoft.com/zh-tw/library/1ad4d8d6.aspx]
 
 
 # Sample Code

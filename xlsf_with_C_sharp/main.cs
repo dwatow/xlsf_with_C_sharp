@@ -33,9 +33,12 @@ namespace XlsFile
             
             excel_file.NewSheet();
             excel_file.SelectCell("B1").SetCell("this is B1");
-            excel_file.SelectCell("C1").SetCell("this is C1");
+            excel_file.SelectCell("B1").CopyCell("B1", "B5");
+
+            excel_file.SelectCell("C1").SetCell("2016/3/16");
+            string datetime = excel_file.SelectCell("C1").GetCell2DateTime().ToString();
+            Console.WriteLine(datetime);
             excel_file.SelectCell("D1").SetCell("this is D1");
-            excel_file.SelectCell("B1").Test();
 
             Console.WriteLine("SheetTotal:{0}", excel_file.SheetTotal());
             Console.WriteLine("SheetName:{0}", excel_file.GetSheetName());

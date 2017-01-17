@@ -144,6 +144,14 @@ namespace XlsFile
             return SheetIndex == -1 || (SheetIndex >= 0 && SheetIndex <= SheetTotal());
         }
 
+        public void HiddenSheet(bool IsHide)
+        {
+            if (IsHide)
+                CurrSheet.Visible = Excel.XlSheetVisibility.xlSheetHidden;
+            else
+                CurrSheet.Visible = Excel.XlSheetVisibility.xlSheetVisible;
+        }
+
         //由SheetNumber 取得SheetName
         public string GetSheetName()
         {

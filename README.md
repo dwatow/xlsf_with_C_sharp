@@ -45,6 +45,7 @@ xls file with C#
     * (如何：以程式設計方式選取工作表)[https://msdn.microsoft.com/zh-tw/library/x62t5306.aspx]
     * (如何：以程式設計方式列印工作表)[https://msdn.microsoft.com/zh-tw/library/czhz96h7.aspx]
     * (如何：以程式設計方式在活頁簿內移動工作表)[https://msdn.microsoft.com/zh-tw/library/xyhf0ksb.aspx]
+    * (如何：以程式設計方式隱藏工作表)[https://msdn.microsoft.com/zh-tw/library/x0th45dh.aspx]
 
 
 # Sample Code

@@ -57,14 +57,15 @@ namespace XlsFile
             Console.WriteLine(str);
             long number = excel_file.SelectCell("A5").GetCell2Int();
             Console.WriteLine(number);
+            excel_file.SelectCell("A5").SetFontBold(true);
             excel_file.SelectSheet(2).CopySheet();
             //excel_file.DeleteSheet(2);
 
             Console.WriteLine("SheetTotal:{0}", excel_file.SheetTotal());
             excel_file.SelectSheet(@"工作表3").MoveSheet();
             //excel_file.SaveAs(@"C:\Users\kgs_chris\Desktop\321.xlsx");
-            excel_file.CloseFile(false);
-            excel_file.Quit();
+            //excel_file.CloseFile(false);
+            //excel_file.Quit();
             Console.WriteLine("Press any key to exit.");
             Console.ReadKey();
         }

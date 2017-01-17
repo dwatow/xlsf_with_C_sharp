@@ -222,13 +222,7 @@ namespace XlsFile
             return this;
         }
 
-        public void SetCell(Int64 CellValue)
-        {
-            CurrCell.Value = CellValue;
-            //Value2是舊版語法
-        }
-
-        public void SetCell(string CellValue)
+        public void SetCell(object CellValue)
         {
             CurrCell.Value = CellValue;
             //Value2是舊版語法
@@ -237,11 +231,6 @@ namespace XlsFile
         public void CopyCell(string CellPosition1, string CellPosition2) //  ("A1", "B3")
         {
             CurrCell.AutoFill(excelApp.get_Range(CellPosition1, CellPosition2), Excel.XlAutoFillType.xlFillCopy);
-        }
-
-        public void SetCell(DateTime DateTimeValue)
-        {
-            CurrCell.Value = DateTimeValue;
         }
 
         public DateTime GetCell2DateTime()

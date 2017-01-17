@@ -35,7 +35,8 @@ namespace XlsFile
             Console.WriteLine("SheetTotal:{0}", excel_file.SheetTotal());
             Console.WriteLine("SheetName:{0}", excel_file.GetSheetName());
 
-            excel_file.Quit();
+            excel_file.CloseFile(false);
+            //excel_file.Quit();
             Console.WriteLine("Press any key to exit.");
             Console.ReadKey();
         }

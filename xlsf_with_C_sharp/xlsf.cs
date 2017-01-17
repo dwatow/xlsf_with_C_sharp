@@ -39,20 +39,25 @@ namespace XlsFile
         #endregion
 
         //Excel._Worksheet objSheet;
+        #region Workbooks, Workbook
         private Excel.Workbooks CurrWorkbooks
         {
             get { return excelApp.Workbooks; }
         }
 
-        #region Workbooks, Workbook
-        //private Excel.Workbook CurrWorkbook
-        //{
-        //    get { return excelApp.ActiveWorkbook; }
-        //}
+        private Excel.Workbook CurrWorkbook
+        {
+            get { return excelApp.ActiveWorkbook; }
+        }
 
         public void OpenFile(string XlsFilePathName)
         {
             CurrWorkbooks.Open(XlsFilePathName);
+        }
+
+        public void CloseFile(bool IsCheckSaveFile = true)
+        {
+            CurrWorkbook.Close(IsCheckSaveFile);
         }
         #endregion
         private Excel.Sheets CurrSheets

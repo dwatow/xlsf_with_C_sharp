@@ -169,6 +169,7 @@ namespace XlsFile
         }
         #endregion
 
+        #region Cell
         //Excel.Range m_Range;, m_Col, m_Row;
         private Excel.Range CurrCell
         {
@@ -185,19 +186,7 @@ namespace XlsFile
             get { return CurrCell.EntireRow; }
         }
 
-        public void Quit()
-        {
-            excelApp.Quit();
-        }
 
-
-
-        public void SetVisible(bool IsVisible)
-        {
-            excelApp.Visible = IsVisible; //false, 速度快
-        }
-
-        #region Cell operator
         public void AutoFitWidth()
         {
             CurrColumnCells.AutoFit();
@@ -208,7 +197,6 @@ namespace XlsFile
             CurrRowCells.AutoFit();
         }
 
-        #region Select Cell
         public xlsf SelectCell(string X, int Y) //  ("A", 3)
         {
             CurrSheet.Cells[Y, X].Select();
@@ -226,9 +214,8 @@ namespace XlsFile
             CurrSheet.Range[SelectRange].Select();
             return this;
         }
-        #endregion
 
-        public xlsf MoveSelect(int X, int Y)
+        public xlsf OffsetSelectCell(int X, int Y)
         {
             CurrCell.Offset[Y, X].Select();
             //get_Offset 是舊版語法
@@ -241,12 +228,27 @@ namespace XlsFile
             //Value2是舊版語法
         }
 
+        public void AutoFill(string CellPosition1, string CellPosition2) //  ("A1", "B3")
+        {
+            CurrCell.AutoFill(excelApp.get_Range(CellPosition1, CellPosition2));
+        }
+
         public xlsf SetCellColor(Color ColorObj)
         {
             CurrCell.Interior.Color = ColorTranslator.ToOle(ColorObj);
             return this;
         }
+        
         #endregion
 
+        public void Quit()
+        {
+            excelApp.Quit();
+        }
+
+        public void SetVisible(bool IsVisible)
+        {
+            excelApp.Visible = IsVisible; //false, 速度快
+        }
     }
 }

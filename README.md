@@ -46,6 +46,9 @@ xls file with C#
     * (如何：以程式設計方式列印工作表)[https://msdn.microsoft.com/zh-tw/library/czhz96h7.aspx]
     * (如何：以程式設計方式在活頁簿內移動工作表)[https://msdn.microsoft.com/zh-tw/library/xyhf0ksb.aspx]
     * (如何：以程式設計方式隱藏工作表)[https://msdn.microsoft.com/zh-tw/library/x0th45dh.aspx]
+* MSDN 使用範圍Range 等同於儲存格
+    * (如何：以程式設計方式在程式碼中參考工作表範圍)[https://msdn.microsoft.com/zh-tw/library/3a71yzkw.aspx]
+    * (如何：以程式設計方式用遞增 (減) 變化的資料自動填滿範圍)[https://msdn.microsoft.com/zh-tw/library/8c94w5fs.aspx]
 
 
 # Sample Code

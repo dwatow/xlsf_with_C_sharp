@@ -28,9 +28,14 @@ namespace XlsFile
             excel_file.SelectCell("A2").SetCellColor(Color.Beige);
 
             excel_file.SelectCell("A3", "B4").SetCellColor(Color.Black);
-            excel_file.MoveSelect(1, 2).SetCell("Black offset 1, 2");
+            excel_file.OffsetSelectCell(1, 2).SetCell("Black offset 1, 2");
             excel_file.AutoFitHight();
+            
             excel_file.NewSheet();
+            excel_file.SelectCell("B1").SetCell("this is B1");
+            excel_file.SelectCell("C1").SetCell("this is C1");
+            excel_file.SelectCell("D1").SetCell("this is D1");
+            excel_file.SelectCell("B1").Test();
 
             Console.WriteLine("SheetTotal:{0}", excel_file.SheetTotal());
             Console.WriteLine("SheetName:{0}", excel_file.GetSheetName());

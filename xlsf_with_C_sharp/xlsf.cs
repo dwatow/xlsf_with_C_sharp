@@ -96,30 +96,29 @@ namespace XlsFile
             CurrSheets.Add();
         }
 
-        public void CopySheet(int SheetIndex)
+        public void CopySheet()
         {
-            CurrSheets[SheetIndex].Copy(CurrSheets[SheetTotal()]);
+            CurrSheet.Copy(CurrSheets[SheetTotal()]);
         }
 
-        public void CopySheet(string SheetName)
-        {
-            CurrSheets[SheetName].Copy(CurrSheets[SheetTotal()]);
-        }
-
-        public void DeleteSheet(int SheetIndex)
+        public void DeleteSheet()
         {
             excelApp.DisplayAlerts = false;
-            CurrSheets[SheetIndex].Delete();
+            CurrSheet.Delete();
             excelApp.DisplayAlerts = true;
         }
 
-        public void DeleteSheet(string SheetName)
+        public xlsf SelectSheet(int SheetIndex)
         {
-            excelApp.DisplayAlerts = false;
-            CurrSheets[SheetName].Delete();
-            excelApp.DisplayAlerts = true;
+            CurrSheets[SheetIndex].Select();
+            return this;
         }
 
+        public xlsf SelectSheet(string SheetName)
+        {
+            CurrSheets[SheetName].Select();
+            return this;
+        }
 
         //由SheetNumber 取得SheetName
         public string GetSheetName()

@@ -35,10 +35,10 @@ namespace XlsFile
             Console.WriteLine("SheetTotal:{0}", excel_file.SheetTotal());
             Console.WriteLine("SheetName:{0}", excel_file.GetSheetName());
 
-            excel_file.CopySheet(@"工作表3");
-            excel_file.CopySheet(2);
+            excel_file.SelectSheet(@"工作表3").CopySheet();
+            excel_file.SelectSheet(2).CopySheet();
             //excel_file.DeleteSheet(2);
-            excel_file.DeleteSheet(@"工作表3");
+            excel_file.SelectSheet(@"工作表3").DeleteSheet();
             //excel_file.SaveAs(@"C:\Users\kgs_chris\Desktop\321.xlsx");
             //excel_file.CloseFile(false);
             //excel_file.Quit();

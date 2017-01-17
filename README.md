@@ -42,6 +42,7 @@ xls file with C#
     * (如何：以程式設計方式在活頁簿中加入新的工作表)[https://msdn.microsoft.com/zh-tw/library/6fczc37s.aspx]
     * (如何：以程式設計方式複製工作表)[https://msdn.microsoft.com/zh-tw/library/ms178800.aspx]
     * (如何：以程式設計方式從活頁簿中刪除工作表)[https://msdn.microsoft.com/zh-tw/library/s9kdkks3.aspx]
+    * (如何：以程式設計方式選取工作表)[https://msdn.microsoft.com/zh-tw/library/x62t5306.aspx]
 
 
 # Sample Code

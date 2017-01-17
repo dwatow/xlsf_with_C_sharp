@@ -158,11 +158,15 @@ namespace XlsFile
             return CurrSheet.Name;
         }
 
+        public void SetSheetName(string SheetName)
+        {
+            CurrSheet.Name = SheetName;
+        }
+
         public long SheetTotal()
         {
             return CurrSheets.Count;
         }
-
         #endregion
 
         //Excel.Range m_Range;, m_Col, m_Row;

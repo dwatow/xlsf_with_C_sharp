@@ -34,6 +34,8 @@ namespace XlsFile
 
             Console.WriteLine("SheetTotal:{0}", excel_file.SheetTotal());
             Console.WriteLine("SheetName:{0}", excel_file.GetSheetName());
+            excel_file.SelectSheet(@"工作表1").SetSheetName("new sheet name");
+            Console.WriteLine("SheetName:{0}", excel_file.GetSheetName());
 
             excel_file.SelectSheet(@"工作表3").CopySheet();
             excel_file.SelectSheet(2).CopySheet();

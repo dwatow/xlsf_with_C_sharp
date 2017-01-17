@@ -55,7 +55,7 @@ xls file with C#
 
 # Sample Code
 用起來的code會像這樣
-```Cs=
+```Cs
 namespace XlsFile
 {
     class Program

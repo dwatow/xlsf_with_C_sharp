@@ -305,6 +305,17 @@ namespace XlsFile
                 CurrSheet.Range[SelectRange].Merge();
         }
 
+        public xlsf SetHorztlAlgmet(Excel.XlHAlign AlignType)
+        {
+            CurrCell.HorizontalAlignment = AlignType;
+            return this;
+        }
+
+        public xlsf SetVrticlAlgmet(Excel.XlVAlign AlignType)
+        {
+            CurrCell.VerticalAlignment = AlignType;
+            return this;
+        }
         public xlsf SetCellColor(Color ColorObj, Excel.XlPattern PatternType = Excel.XlPattern.xlPatternAutomatic)
         {
             CurrCell.Interior.Color = ColorTranslator.ToOle(ColorObj);

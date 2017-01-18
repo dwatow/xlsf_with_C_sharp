@@ -50,9 +50,14 @@ namespace XlsFile
             excel_file.SelectSheet(@"工作表3").CopySheet();
             excel_file.SelectCellandSetMerge("B5:B7");
             excel_file.SelectCellandSetMerge("B5:B7");//恢復 無Merge
-            excel_file.SelectCell("A1").SetCell(1);
+
+            excel_file.SelectCell("A1").SetCellHeight(50).SetHorztlAlgmet(XlHAlign.xlHAlignLeft).SetCell(1);
+
             excel_file.SelectCell("A2").SetCell(2);
-            excel_file.SelectCell("A3").SetCell(3);
+            excel_file.SelectCell("A3").SetCellHeight(50).SetCell(3);
+            excel_file.SetHorztlAlgmet(XlHAlign.xlHAlignJustify);
+            excel_file.SetVrticlAlgmet(XlVAlign.xlVAlignTop); 
+
             excel_file.SelectCell("A4").SetCell(4);
             excel_file.SelectCell("A4").SetCellHeight(36).SetCellWidth(68);
             excel_file.SelectCell("A5").SetCell("=SUM(A1:A4)");

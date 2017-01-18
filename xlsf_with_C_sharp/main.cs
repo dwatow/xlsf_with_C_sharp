@@ -48,6 +48,7 @@ namespace XlsFile
             Console.WriteLine("SheetName:{0}", excel_file.GetSheetName());
 
             excel_file.SelectSheet(@"工作表3").CopySheet();
+
             excel_file.SelectCellandSetMerge("B5:B7");
             excel_file.SelectCellandSetMerge("B5:B7");//恢復 無Merge
 
@@ -71,6 +72,8 @@ namespace XlsFile
 
             Console.WriteLine("SheetTotal:{0}", excel_file.SheetTotal());
             excel_file.SelectSheet(@"工作表3").MoveSheet();
+            excel_file.SelectCell("G5").SetCellBorder(XlLineStyle.xlContinuous, XlBorderWeight.xlThin, Color.Red);
+
             //excel_file.SaveAs(@"C:\321.xlsx");
             //excel_file.CloseFile(false);
             //excel_file.Quit();

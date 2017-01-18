@@ -305,29 +305,38 @@ namespace XlsFile
                 CurrSheet.Range[SelectRange].Merge();
         }
 
+        #region 對齊
         public xlsf SetHorztlAlgmet(Excel.XlHAlign AlignType)
         {
             CurrCell.HorizontalAlignment = AlignType;
             return this;
         }
-
         public xlsf SetVrticlAlgmet(Excel.XlVAlign AlignType)
         {
             CurrCell.VerticalAlignment = AlignType;
             return this;
         }
-
         public xlsf SetTextAngle(int Angle)
         {
             CurrCell.Orientation = Angle;
             return this;
         }
-
         public xlsf AutoNewLine(bool NewLine = true)
         {
             CurrCell.WrapText = NewLine;
             return this;
         }
+        #endregion
+
+        public xlsf SetCellBorder(Excel.XlLineStyle BoarderStyle, Excel.XlBorderWeight BoarderWeight, Color BoarderColor)
+        {
+            CurrCell.Borders.LineStyle = BoarderStyle;
+            CurrCell.Borders.Weight = BoarderWeight;
+            CurrCell.Borders.Color = ColorTranslator.ToOle(BoarderColor);
+
+            return this;
+        }
+
         public xlsf SetCellColor(Color ColorObj, Excel.XlPattern PatternType = Excel.XlPattern.xlPatternAutomatic)
         {
             CurrCell.Interior.Color = ColorTranslator.ToOle(ColorObj);

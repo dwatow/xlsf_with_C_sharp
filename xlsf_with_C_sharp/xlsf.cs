@@ -6,6 +6,7 @@ using System.Drawing;
 
 using Excel = Microsoft.Office.Interop.Excel;
 using System.Runtime.InteropServices;
+using System.Reflection;
 
 namespace XlsFile
 {
@@ -292,6 +293,16 @@ namespace XlsFile
         public void FreezeCell(bool IsFreeze = true)
         {
             excelApp.ActiveWindow.FreezePanes = IsFreeze;
+        }
+
+        public void SelectCellandSetMerge(string SelectRange)
+        {
+            //透過 CurrCell(ActiveCell)無法Merge
+            //暫時找不到取出儲存格座標值的方法！QQ
+            if (CurrSheet.Range[SelectRange].MergeCells)
+                CurrSheet.Range[SelectRange].UnMerge();
+            else
+                CurrSheet.Range[SelectRange].Merge();
         }
 
         public xlsf SetCellColor(Color ColorObj, Excel.XlPattern PatternType = Excel.XlPattern.xlPatternAutomatic)

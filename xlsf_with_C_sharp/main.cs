@@ -48,6 +48,8 @@ namespace XlsFile
             Console.WriteLine("SheetName:{0}", excel_file.GetSheetName());
 
             excel_file.SelectSheet(@"工作表3").CopySheet();
+            excel_file.SelectCellandSetMerge("B5:B7");
+            excel_file.SelectCellandSetMerge("B5:B7");//恢復 無Merge
             excel_file.SelectCell("A1").SetCell(1);
             excel_file.SelectCell("A2").SetCell(2);
             excel_file.SelectCell("A3").SetCell(3);
@@ -59,7 +61,6 @@ namespace XlsFile
             long number = excel_file.SelectCell("A5").GetCell2Int();
             Console.WriteLine(number);
             excel_file.SelectCell("A5").SetFontBold(true).SetFontStrkthrgh(true);
-            excel_file.SelectCell("B5").FreezeCell();
             excel_file.SelectSheet(2).CopySheet();
             //excel_file.DeleteSheet(2);
 

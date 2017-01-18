@@ -24,7 +24,7 @@ namespace XlsFile
             excel_file.SelectCell("A1").AutoFitWidth();
             
             excel_file.SelectCell("B", 1).SetCell("Current Balance");
-            excel_file.SelectCell("B", 1).AutoFitWidth();
+            excel_file.SelectCell("B", 1).AutoNewLine();
 
             excel_file.SelectCell("A2").SetCellColor(Color.Beige);
 
@@ -55,8 +55,8 @@ namespace XlsFile
 
             excel_file.SelectCell("A2").SetCell(2);
             excel_file.SelectCell("A3").SetCellHeight(50).SetCell(3);
-            excel_file.SetHorztlAlgmet(XlHAlign.xlHAlignJustify);
-            excel_file.SetVrticlAlgmet(XlVAlign.xlVAlignTop); 
+            excel_file.SetHorztlAlgmet(XlHAlign.xlHAlignJustify).SetVrticlAlgmet(XlVAlign.xlVAlignTop).SetTextAngle(45);
+
 
             excel_file.SelectCell("A4").SetCell(4);
             excel_file.SelectCell("A4").SetCellHeight(36).SetCellWidth(68);

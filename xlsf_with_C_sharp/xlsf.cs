@@ -316,6 +316,18 @@ namespace XlsFile
             CurrCell.VerticalAlignment = AlignType;
             return this;
         }
+
+        public xlsf SetTextAngle(int Angle)
+        {
+            CurrCell.Orientation = Angle;
+            return this;
+        }
+
+        public xlsf AutoNewLine(bool NewLine = true)
+        {
+            CurrCell.WrapText = NewLine;
+            return this;
+        }
         public xlsf SetCellColor(Color ColorObj, Excel.XlPattern PatternType = Excel.XlPattern.xlPatternAutomatic)
         {
             CurrCell.Interior.Color = ColorTranslator.ToOle(ColorObj);

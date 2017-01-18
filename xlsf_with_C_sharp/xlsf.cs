@@ -12,12 +12,18 @@ namespace XlsFile
 {
     class xlsf
     {
+        /*
+         * Four Part in this class
+         * 1. App control Excel application
+         * 2. constructor, destructor control class live cycle and release resource
+         * 3. Workbooks, Workbook control Excel File
+         * 4. Sheet control multi Excel Sheet
+         * 5. Cell control Cell or Range and any user real action for Excel.
+         */
+
         #region App
         Excel.Application excelApp;
-        //Excel.Sheets objSheets;
 
-        //Excel.Interior m_Cell;
-        //Excel.Font m_Font;
         public void Quit()
         {
             excelApp.Quit();
@@ -84,8 +90,11 @@ namespace XlsFile
 
         public void SaveAs(string FilePathName)
         {
+            //MSDN提醒: 
             //穩固程式設計
-            //以互動方式取消任何儲存或複製活頁簿的方法，都會在程式碼中引發執行階段錯誤。例如，如果您的程序呼叫 SaveAs 方法，但不停用來自 Excel 的提示訊息，而使用者在出現提示時按一下 [取消]，此時 Excel 就會引發執行階段錯誤。
+            //以互動方式取消任何儲存或複製活頁簿的方法，都會在程式碼中引發執行階段錯誤。
+            //例如，如果您的程序呼叫 SaveAs 方法，但不停用來自 Excel 的提示訊息，
+            //而使用者在出現提示時按一下 [取消]，此時 Excel 就會引發執行階段錯誤。
             excelApp.DisplayAlerts = false;
             CurrWorkbook.SaveAs(FilePathName);
             excelApp.DisplayAlerts = true;
@@ -396,6 +405,5 @@ namespace XlsFile
             return this;
         }
         #endregion
-
     }
 }

@@ -289,6 +289,10 @@ namespace XlsFile
         }
         #endregion
 
+        public void FreezeCell(bool IsFreeze = true)
+        {
+            excelApp.ActiveWindow.FreezePanes = IsFreeze;
+        }
 
         public xlsf SetCellColor(Color ColorObj, Excel.XlPattern PatternType = Excel.XlPattern.xlPatternAutomatic)
         {

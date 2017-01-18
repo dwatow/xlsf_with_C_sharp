@@ -51,7 +51,7 @@ xls file with C#
     * [如何：以程式設計方式用遞增 (減) 變化的資料自動填滿範圍](https://msdn.microsoft.com/zh-tw/library/8c94w5fs.aspx)
     * [如何：以程式設計方式在 Excel 範圍中儲存和擷取日期值](https://msdn.microsoft.com/zh-tw/library/1ad4d8d6.aspx)
     * [如何：以程式設計方式將樣式套用至活頁簿中的範圍](https://msdn.microsoft.com/zh-tw/library/f1hh9fza.aspx)
-
+* [C# Excel 行高、列寬、合併儲存格、儲存格邊框線、凍結](http://fecbob.pixnet.net/blog/post/38189181-c%23-excel-%E8%A1%8C%E9%AB%98%E3%80%81%E5%88%97%E5%AF%AC%E3%80%81%E5%90%88%E4%BD%B5%E5%84%B2%E5%AD%98%E6%A0%BC%E3%80%81%E5%84%B2%E5%AD%98%E6%A0%BC%E9%82%8A%E6%A1%86)
 
 # Sample Code
 用起來的code會像這樣

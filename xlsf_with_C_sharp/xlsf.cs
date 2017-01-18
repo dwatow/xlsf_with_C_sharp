@@ -314,6 +314,26 @@ namespace XlsFile
                 CurrSheet.Range[SelectRange].Merge();
         }
 
+        public long GetHorztlStartCell()
+        {
+            return CurrCell.Column;
+        }
+        public long GetVrticlStartCell()
+        {   
+            return CurrCell.Row;
+        }
+        public long GetHorztlTotalCell()
+        {
+            //就是使用的範圍
+            return CurrSheet.UsedRange.Cells.Columns.Count;
+        }
+        
+        public long GetVrticlTotalCell()
+        {
+            //就是使用的範圍
+            return CurrSheet.UsedRange.Cells.Rows.Count;
+        }
+
         #region 對齊
         public xlsf SetHorztlAlgmet(Excel.XlHAlign AlignType)
         {
@@ -402,6 +422,12 @@ namespace XlsFile
         public xlsf SetCellWidth(int WidthValue)
         {
             CurrCell.ColumnWidth = WidthValue;
+            return this;
+        }
+
+        public xlsf Insert(Excel.XlInsertShiftDirection ShiftCellType)
+        {
+            CurrCell.Insert(ShiftCellType);
             return this;
         }
         #endregion

@@ -74,6 +74,20 @@ namespace XlsFile
             excel_file.SelectSheet(@"工作表3").MoveSheet();
             excel_file.SelectCell("G5").SetCellBorder(XlLineStyle.xlContinuous, XlBorderWeight.xlThin, Color.Red);
 
+            excel_file.NewSheet();
+            excel_file.SetSheetName("取值");
+            excel_file.SelectCell("B2").SetCell("B2");
+            //excel_file.SelectCell("B3").SetCell("B3");
+            //excel_file.SelectCell("C2").SetCell("C2");
+            excel_file.SelectCell("C9").SetCell("C9");
+
+            //excel_file.SelectCell("B2:C3");
+
+            Console.WriteLine("GetHorztlStartCell:{0}", excel_file.GetHorztlStartCell());
+            Console.WriteLine("GetVrticlStartCell:{0}", excel_file.GetVrticlStartCell());
+            Console.WriteLine("GetHorztlTotalCell:{0}", excel_file.GetHorztlTotalCell());
+            Console.WriteLine("GetVrticlTotalCell:{0}", excel_file.GetVrticlTotalCell());
+
             //excel_file.SaveAs(@"C:\321.xlsx");
             //excel_file.CloseFile(false);
             //excel_file.Quit();

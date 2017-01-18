@@ -4,7 +4,7 @@ A class of xls file with C#
 想要仿照 [xlsf_with_MFC](https://github.com/dwatow/xlsf_with_MFC)的class使用方式
 做一個C#版本的class
 
-# xls file with C#
+# xls file with C sharp
 xls file with C#
 
 # 聲明
